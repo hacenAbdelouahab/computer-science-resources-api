@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+    <link rel="stylesheet" href="public/all.min.css" />
+    <link rel="stylesheet" href="public/normalize.css" />
+    <link rel="stylesheet" href="public/style.css" />
+    <title>Computer Science Resources API</title>
+  </head>
+  <body>
+    <!-- Start Header -->
+    <header>
+      <div class="container">
+        <ul class="nav">
+          <li><a href="about">About</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li class="logo"><img src="img/logoFinal.png" alt="" /></li>
+          <li><a href="main">Browse Resources</a></li>
+          <li><a href="documentation">Documentation</a></li>
+        </ul>
+        <button id="contribute">Contribute</button>
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- Start Main -->
+    <main>
+      <div class="image plant">
+        <img src="img/blankiePlant.png" class="plant" alt="" />
+      </div>
+      <div class="content">
+        <h1>Computer Science Resources API</h1>
+        <p>
+          Discover Handpicked and Trusted Coding Resources: Explore a Vast Collection of Educational Content on Computer Science,
+          Web Development, and More. Easily Find Coding Resources with Targeted Keyword Search.
+        </p>
+        <form action="">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            name="search"
+            class="search"
+            id="search"
+            placeholder="Keyword to search for"
+          />
+        </form>
+      </div>
+      <div class="image star">
+        <img src="img/blankieStar.png" class="star" alt="" />
+      </div>
+    </main>
+    <!-- End Main -->
+    <!-- Start APIs -->
+    <section class="apis">
+      <div class="container">
+        <div class="box">
+          <div class="image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/5968/5968238.png"
+              alt=""
+            />
+          </div>
+          <ul>
+            <li class="name">Javascript.info</li>
+            <li class="description">
+              Best JavaScript documentation. From the basics to advanced topics
+              with simple, but detailed explanations
+            </li>
+            <li>
+              <span class="keyword">JavaScript</span
+              ><span class="keyword">basics</span>
+            </li>
+            <li class="url">
+              <a href="https://javascript.info/js" target="_blank">Explore</a>
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+              alt=""
+            />
+          </div>
+          <ul>
+            <li class="name">Javascript.info</li>
+            <li class="description">
+              Best JavaScript documentation. From the basics to advanced topics
+              with simple, but detailed explanations
+            </li>
+            <li>
+              <span class="keyword">JavaScript</span>
+              <span class="keyword">JavaScript</span>
+              <span class="keyword">JavaScript</span>
+              <span class="keyword">JavaScript</span>
+              <span class="keyword">basics</span>
+            </li>
+            <li class="url">
+              <a href="https://javascript.info/js" target="_blank">Explore</a>
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/5968/5968194.png"
+              alt=""
+            />
+          </div>
+          <ul>
+            <li class="name">Javascript.info</li>
+            <li class="description">
+              Best JavaScript documentation. From the basics to advanced topics
+              with simple, but detailed explanations
+            </li>
+            <li>
+              <span class="keyword">JavaScript</span
+              ><span class="keyword">basics</span>
+            </li>
+            <li class="url">
+              <a href="https://javascript.info/js" target="_blank">Explore</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- End APIs -->
+    <!-- Start Documentation -->
+    <section class="documentation" id="documentation">
+      <div class="container">
+      <h2>Documentation</h2>
+      <section class='object-table'>
+        <h3>There are 3 properties/keys that come with each resource object:</h3>
+        <table class="darkTable">
+          <thead>
+          <tr>
+          <th id='property'>PROPERTY</th>
+          <th id='description'>DESCRIPTION</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td id='name'>name</td><td>[String] Name or title of the document, article or website. </td></tr>
+          <tr>
+          <td id='url'>url</td><td>[String] Link to website.</td></tr>
+          <tr>
+          <td id='keywords'>keywords</td><td id='array'>[Array] Relevant keywords related to the resource's topic.</td></tr>
+          </tbody>
+          </tr>
+        </table>
+      </section>
+      <h2>Endpoints</h2>
+      <section class='endpoints'>
+        <div class='url'>
+          <h3>Direct link to the complete resources object or a filtered object after using a keyword:</h3>
+          <code>https://coding-resources-api.herokuapp.com/api</code>
+          <h4>*The "/api" endpoint will return every resource object in an array.</h4>
+          <code>https://coding-resources-api.herokuapp.com/api/<span>&lt;keyword&gt;</span></code>
+          <h4>*The "/api/keyword" endpoint accepts a keyword that will be used to search through an array of resources by the content the resource provides.</h4>
+        </div>
+        <div class='js-fetch'>
+          <h3>Example code-block of how to fetch with JavaScript:</h3>
+          <code id='js-example'>const URL = `https://coding-resources-api.herokuapp.com/api/<span>${keyword}</span>`;<br><br>
+            fetch(URL)<br>
+            &emsp;&emsp;&emsp;.then(res => res.json())<br>
+            &emsp;&emsp;&emsp;.then(data => console.log(data))<br>
+            &emsp;&emsp;&emsp;.catch(err => console.error(err));</code>
+        </div>
+      </section>
+    </div>
+    </section>
+    <!-- End Documentation -->
+    <!-- Start Contributors -->
+    <section class="contributors" id="contributors">
+      <h1>Contributors</h1>
+      <div class="profile-card">
+        <div class="img">
+          <img src="img/real.png">
+        </div>
+        <div class="caption">
+          <h3>Hacen Abdelouahab</h3>
+          <p>Software Engineer</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contributors -->
+    <!-- Start Footer -->
+    <footer>
+      <div class="container">
+      <h3>Thank You!</h3>
+      <i class="fa-brands fa-github"></i>
+      <p>
+        Bugs? Features? Please report them here: <a href="github.com" target="_blank"> GitHub.</a>
+      </p>
+      <p>
+        We would love to see what you are making with this API. Please tweet us!
+      </p>
+    </div>
+    </footer>
+    <!-- End Footer -->
+  </body>
+</html>

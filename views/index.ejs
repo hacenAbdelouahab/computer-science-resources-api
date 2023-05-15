@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Computer Science Resources API</title>
+  </head>
+  <body>
+    <!-- Start Header -->
+    <header>
+      <div class="container">
+        <ul class="nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#contributors">Contact</a></li>
+          <li class="logo"><img src="img/logoFinal.png" alt="" /></li>
+          <li><a href="#main">Browse Resources</a></li>
+          <li><a href="#documentation">Documentation</a></li>
+        </ul>
+        <a href="https://github.com/hacenAbdelouahab" target="_blank"><button id="contribute">Contribute</button></a>
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- Start Main -->
+    <main>
+      <div class="image plant">
+        <img src="img/blankiePlant.png" class="plant" alt="" />
+      </div>
+      <div class="content">
+        <h1>Computer Science Resources API</h1>
+        <p>
+          Discover Handpicked and Trusted Coding Resources: Explore a Vast Collection of Educational Content on Computer Science,
+          Web Development, and More. Easily Find Coding Resources with Targeted Keyword Search.
+        </p>
+        <div class="form">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            name="search"
+            class="search"
+            id="search"
+            placeholder="Keyword to search for"
+          />
+        </div>
+      </div>
+      <div class="image star">
+        <img src="img/blankieStar.png" class="star" alt="" />
+      </div>
+    </main>
+    <!-- End Main -->
+    <!-- Start APIs -->
+    <section class="apis" id="main">
+      <div class="container">
+           <% if (resources) { %> <% let firstSixOnly = 0; %> <%
+            resources.forEach((resource) => { %> <% if (firstSixOnly < 6){ %>
+              <div class="box">
+          <div class="image"><img src=<%= `${resource.img}` %>></div>
+          <ul>
+            <li class="name"><%= resource.name %></li>
+            <li class="description"><%= resource.description %></li>
+            <li>
+              <%resource.keywords.forEach((keyword) => {%>
+              <span class="keyword"><%=keyword %></span>
+              <% }) %>
+            </li>
+            <li class="url">
+              <a target="_blank" href=<%= `${resource.url}` %>>Explore</a>
+            </li>
+          </ul>
+        </div>
+          <% }firstSixOnly++ %> <% }) %> <%}%>
+      </div>
+    </section>
+    <!-- End APIs -->
+    
+    <!-- Start Documentation -->
+    <section class="documentation" id="documentation">
+      <div class="container">
+      <h2>Documentation</h2>
+      <section class='object-table'>
+        <h3>There are 3 properties/keys that come with each resource object:</h3>
+        <table class="darkTable">
+          <thead>
+          <tr>
+          <th id='property'>PROPERTY</th>
+          <th id='description'>DESCRIPTION</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td id='name'>name</td><td>[String] Name or title of the document, article or website. </td></tr>
+          <tr>
+          <td id='url'>url</td><td>[String] Link to website.</td></tr>
+          <tr>
+          <td id='keywords'>keywords</td><td id='array'>[Array] Relevant keywords related to the resource's topic.</td></tr>
+          <tr>
+          <td id='image'>img</td><td id='array'>[String] An optional image URL associated with the technology.</td></tr>
+          </tbody>
+          </tr>
+        </table>
+      </section>
+      <h2>Endpoints</h2>
+      <section class='endpoints'>
+        <div class='url'>
+          <h3>Direct link to the complete resources object or a filtered object after using a keyword:</h3>
+          <code>/api</code>
+          <h4>*The "/api" endpoint will return every resource object in an array.</h4>
+          <code>/api/<span>&lt;keyword&gt;</span></code>
+          <h4>*The "/api/keyword" endpoint accepts a keyword that will be used to search through an array of resources by the content the resource provides.</h4>
+        </div>
+        <div class='js-fetch'>
+          <h3>Example code-block of how to fetch with JavaScript:</h3>
+          <code id='js-example'>const URL = `/api/<span>${keyword}</span>`;<br><br>
+            fetch(URL)<br>
+            &emsp;&emsp;&emsp;.then(res => res.json())<br>
+            &emsp;&emsp;&emsp;.then(data => console.log(data))<br>
+            &emsp;&emsp;&emsp;.catch(err => console.error(err));</code>
+        </div>
+      </section>
+    </div>
+    </section>
+    <!-- End Documentation -->
+    <!-- Start Contributors -->
+    <section class="contributors" id="contributors">
+      <h1>Contributors</h1>
+      <div class="profile-card">
+        <div class="img">
+          <img src="img/real.png">
+        </div>
+        <div class="caption">
+          <h3>Hacen Abdelouahab</h3>
+          <p>Software Engineer</p>
+          <div class="social-links">
+            <a target="_blank" href="https://www.facebook.com/abdelouahab.hassan"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/hacen-abdelouahab/"><i class="fa-brands fa-linkedin"></i></a>
+            <a target="_blank" href="https://github.com/hacenAbdelouahab"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contributors -->
+    <!-- Start Footer -->
+    <footer>
+      <div class="container">
+      <h3>Thank You!</h3>
+
+      <a target="_blank" href="https://github.com/hacenAbdelouahab"><i class="fa-brands fa-github"></i></a>
+      <p>
+        Bugs? Features? Please report them here: <a target="_blank" href="https://github.com/hacenAbdelouahab" target="_blank"> GitHub.</a>
+      </p>
+      <p>
+        Have you used our API in your project? We'd be thrilled to see what you've created! Share your work with us on Twitter.
+      </p>
+    </div>
+    </footer>
+    <!-- End Footer -->
+
+    <script src="/main.js"></script>
+  </body>
+</html>
